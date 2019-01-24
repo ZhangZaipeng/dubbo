@@ -9,10 +9,10 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>dubbo-user-service</artifactId>
+  <artifactId>dubbo-wallet-server</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>dubbo-user-service</name>
+  <name>dubbo-wallet-server</name>
 
   <properties>
     <java.version>1.8</java.version>
@@ -22,7 +22,7 @@
 
     <dependency>
       <groupId>com.example</groupId>
-      <artifactId>dubbo-user-interface</artifactId>
+      <artifactId>dubbo-wallet-interface</artifactId>
     </dependency>
 
     <dependency>
