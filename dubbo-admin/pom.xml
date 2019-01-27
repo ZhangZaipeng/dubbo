@@ -9,15 +9,10 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>dubbo-user</artifactId>
+  <artifactId>dubbo-admin</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <name>dubbo-user</name>
-
-  <modules>
-    <module>dubbo-user-server</module>
-    <module>dubbo-user-interface</module>
-  </modules>
+  <packaging>jar</packaging>
+  <name>dubbo-admin</name>
 
   <properties>
     <java.version>1.8</java.version>
