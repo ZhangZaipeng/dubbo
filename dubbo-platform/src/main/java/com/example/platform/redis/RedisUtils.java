@@ -2,7 +2,7 @@ package com.example.platform.redis;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.otc.common.utils.StringUtils;
+import com.example.common.utils.StringUtils;
 import com.example.platform.YvanUtil;
 import java.util.Date;
 import java.util.Map;
