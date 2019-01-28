@@ -17,6 +17,7 @@
 
   <modules>
     <module>dubbo-common</module>
+    <module>dubbo-admin</module>
     <module>dubbo-front-api</module>
     <module>dubbo-user</module>
     <module>dubbo-job</module>
