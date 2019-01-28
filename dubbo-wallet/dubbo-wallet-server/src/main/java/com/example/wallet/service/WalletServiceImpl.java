@@ -8,7 +8,7 @@ public class WalletServiceImpl implements WalletService {
 
   @Override
   public String SayHello(String p) {
-    return "测试 dubbo 调用" + p;
+    return "wallet 测试 dubbo 调用" + p;
   }
 
 }
