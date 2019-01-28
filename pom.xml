@@ -23,6 +23,7 @@
     <module>dubbo-user</module>
     <module>dubbo-job</module>
     <module>dubbo-wallet</module>
+    <module>dubbo-deploy</module>
   </modules>
 
   <properties>

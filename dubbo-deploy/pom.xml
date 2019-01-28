@@ -5,17 +5,17 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.otc</groupId>
-    <artifactId>otc</artifactId>
+    <groupId>com.example</groupId>
+    <artifactId>dubbo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <groupId>com.otc</groupId>
-  <artifactId>otc-deploy</artifactId>
+  <groupId>com.example</groupId>
+  <artifactId>dubbo-deploy</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>otc-deploy</name>
+  <name>dubbo-deploy</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
