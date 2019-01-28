@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @AutoConfigureAfter(MyBatisConfig.class)
-@EnableTransactionManagement
 public class MybatisMapperScannerConfig {
 
   @Bean
