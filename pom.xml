@@ -16,6 +16,7 @@
   <description>Demo project for Spring Boot</description>
 
   <modules>
+    <module>dubbo-common</module>
     <module>dubbo-front-api</module>
     <module>dubbo-user</module>
     <module>dubbo-job</module>

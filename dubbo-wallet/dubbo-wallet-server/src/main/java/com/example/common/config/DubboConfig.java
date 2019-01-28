@@ -1,4 +1,4 @@
-package com.example.wallet.config;
+package com.example.common.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;

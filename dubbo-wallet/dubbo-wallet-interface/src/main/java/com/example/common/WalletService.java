@@ -1,4 +1,4 @@
-package com.example.wallet;
+package com.example.common;
 
 import org.springframework.stereotype.Service;
 

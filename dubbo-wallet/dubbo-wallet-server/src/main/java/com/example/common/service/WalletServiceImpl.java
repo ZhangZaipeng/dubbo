@@ -1,6 +1,6 @@
-package com.example.wallet.service;
+package com.example.common.service;
 
-import com.example.wallet.WalletService;
+import com.example.common.WalletService;
 import org.springframework.stereotype.Service;
 
 @Service("walletService")
