@@ -1,0 +1,347 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.otc</groupId>
+    <artifactId>otc</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+
+  <groupId>com.otc</groupId>
+  <artifactId>otc-deploy</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>otc-deploy</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- ${project.build.directory} 构建目录，缺省为target -->
+    <release_directory>${project.build.directory}/</release_directory>
+    <binconf_directory>${project.build.directory}/web-deploy</binconf_directory>
+    <file_encoding>utf-8</file_encoding>
+  </properties>
+
+  <profiles>
+
+    <!-- api model -->
+    <profile>
+      <id>api</id>
+      <properties>
+        <appName>otc-front-api</appName>
+        <moduleName>api</moduleName>
+        <appserverPort>8081</appserverPort>
+        <appDebugPort>18081</appDebugPort>
+        <fileProName>application-product-api.yml</fileProName>
+      </properties>
+    </profile>
+
+    <!-- wallet model -->
+    <profile>
+      <id>wallet</id>
+      <properties>
+        <appName>otc-wallet</appName>
+        <moduleName>wallet</moduleName>
+        <appserverPort>8071</appserverPort>
+        <appDebugPort>18071</appDebugPort>
+        <fileProName>application-product-wallet.yml</fileProName>
+      </properties>
+    </profile>
+
+    <!-- admin model -->
+    <profile>
+      <id>admin</id>
+      <properties>
+        <appName>otc-admin</appName>
+        <moduleName>admin</moduleName>
+        <appserverPort>8051</appserverPort>
+        <appDebugPort>18051</appDebugPort>
+        <fileProName>application-product-admin.yml</fileProName>
+      </properties>
+    </profile>
+
+    <!-- match model -->
+    <profile>
+      <id>match</id>
+      <properties>
+        <appName>otc-match</appName>
+        <moduleName>match</moduleName>
+        <appserverPort>8061</appserverPort>
+        <appDebugPort>18061</appDebugPort>
+        <fileProName>application-product-match.yml</fileProName>
+      </properties>
+    </profile>
+
+    <!-- job model -->
+    <profile>
+      <id>job</id>
+      <properties>
+        <appName>otc-job</appName>
+        <moduleName>job</moduleName>
+        <appserverPort>8091</appserverPort>
+        <appDebugPort>18091</appDebugPort>
+        <fileProName>application-product-job.yml</fileProName>
+      </properties>
+    </profile>
+
+
+    <profile>
+      <id>dev</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+        <property>
+          <name>env</name>
+          <value>dev</value>
+        </property>
+      </activation>
+      <build>
+        <filters>
+          <filter>dev.properties</filter>
+        </filters>
+        <plugins>
+          <!-- Copy war artifact -->
+          <plugin>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>2.1</version>
+            <executions>
+              <execution>
+                <id>copy-war</id>
+                <phase>prepare-package</phase>
+                <goals>
+                  <goal>copy</goal>
+                </goals>
+                <configuration>
+                  <artifactItems>
+                    <artifactItem>
+                      <groupId>com.otc</groupId>
+                      <artifactId>otc-${moduleName}</artifactId>
+                      <version>0.0.1-SNAPSHOT</version>
+                      <type>jar</type>
+                    </artifactItem>
+                  </artifactItems>
+                  <outputDirectory>${release_directory}</outputDirectory>
+                  <overWriteReleases>false</overWriteReleases>
+                  <overWriteSnapshots>true</overWriteSnapshots>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>prepare-deploy-package</id>
+                <phase>prepare-package</phase>
+                <goals>
+                  <goal>run</goal>
+                </goals>
+                <configuration>
+                  <tasks>
+                    <copy encoding="${file_encoding}" outputencoding="${file_encoding}"
+                          todir="${release_directory}">
+                      <fileset file="${binconf_directory}/install.sh"/>
+                    </copy>
+                    <chmod dir="${binconf_directory}/bin" includes="**" perm="755"/>
+                    <zip destfile="${release_directory}/web-deploy.zip">
+                      <!-- 打包脚本目录 -->
+                      <zipfileset dir="${binconf_directory}" filemode="755">
+                        <include name="bin/**"/>
+                      </zipfileset>
+                      <!-- 打包jar包 -->
+                      <zipfileset dir="${release_directory}">
+                        <include name="*.jar"/>
+                      </zipfileset>
+                    </zip>
+                  </tasks>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>test</id>
+      <activation>
+        <!--默认激活开发配制 -->
+        <activeByDefault>false</activeByDefault>
+        <!-- env 打包标示 -->
+        <property>
+          <name>env</name>
+          <value>test</value>
+        </property>
+      </activation>
+
+      <build>
+        <filters>
+          <filter>test.properties</filter>
+        </filters>
+        <plugins>
+          <!-- Copy war artifact -->
+          <plugin>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>2.1</version>
+            <executions>
+              <execution>
+                <id>copy-war</id>
+                <phase>prepare-package</phase>
+                <goals>
+                  <goal>copy</goal>
+                </goals>
+                <configuration>
+                  <artifactItems>
+                    <artifactItem>
+                      <groupId>com.otc</groupId>
+                      <!--<artifactId>otc-user</artifactId>-->
+                      <artifactId>otc-${moduleName}</artifactId>
+                      <version>0.0.1-SNAPSHOT</version>
+                      <type>jar</type>
+                    </artifactItem>
+                  </artifactItems>
+                  <outputDirectory>${release_directory}</outputDirectory>
+                  <overWriteReleases>false</overWriteReleases>
+                  <overWriteSnapshots>true</overWriteSnapshots>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>prepare-deploy-package</id>
+                <phase>prepare-package</phase>
+                <goals>
+                  <goal>run</goal>
+                </goals>
+                <configuration>
+                  <tasks>
+                    <copy encoding="${file_encoding}" outputencoding="${file_encoding}"
+                          todir="${release_directory}">
+                      <fileset file="${binconf_directory}/install.sh"/>
+                    </copy>
+                    <chmod dir="${binconf_directory}/bin" includes="**" perm="755"/>
+                    <zip destfile="${release_directory}/web-deploy.zip">
+                      <!-- 打包脚本目录 -->
+                      <zipfileset dir="${binconf_directory}" filemode="755">
+                        <include name="bin/**"/>
+                      </zipfileset>
+                      <!-- 打包jar包 -->
+                      <zipfileset dir="${release_directory}">
+                        <include name="*.jar"/>
+                      </zipfileset>
+                    </zip>
+                  </tasks>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>product</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+        <property>
+          <name>env</name>
+          <value>product</value>
+        </property>
+      </activation>
+      <build>
+        <filters>
+          <filter>product.properties</filter>
+        </filters>
+        <plugins>
+          <!-- Copy war artifact -->
+          <plugin>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>2.1</version>
+            <executions>
+              <execution>
+                <id>copy-war</id>
+                <phase>prepare-package</phase>
+                <goals>
+                  <goal>copy</goal>
+                </goals>
+                <configuration>
+                  <artifactItems>
+                    <artifactItem>
+                      <groupId>com.otc</groupId>
+                      <!--<artifactId>otc-user</artifactId>-->
+                      <artifactId>otc-${moduleName}</artifactId>
+                      <version>0.0.1-SNAPSHOT</version>
+                      <type>jar</type>
+                    </artifactItem>
+                  </artifactItems>
+                  <outputDirectory>${release_directory}</outputDirectory>
+                  <overWriteReleases>false</overWriteReleases>
+                  <overWriteSnapshots>true</overWriteSnapshots>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>prepare-deploy-package</id>
+                <phase>prepare-package</phase>
+                <goals>
+                  <goal>run</goal>
+                </goals>
+                <configuration>
+                  <tasks>
+                    <copy encoding="${file_encoding}" outputencoding="${file_encoding}"
+                      todir="${release_directory}">
+                      <fileset file="${binconf_directory}/install.sh"/>
+                    </copy>
+                    <chmod dir="${binconf_directory}/bin" includes="**" perm="755"/>
+                    <zip destfile="${release_directory}/web-deploy.zip">
+                      <!-- 打包脚本目录 -->
+                      <zipfileset dir="${binconf_directory}" filemode="755">
+                        <include name="bin/**"/>
+                      </zipfileset>
+                      <!-- 打包jar包 -->
+                      <zipfileset dir="${release_directory}">
+                        <include name="*.jar"/>
+                      </zipfileset>
+                    </zip>
+                  </tasks>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+  </profiles>
+
+  <build>
+    <!-- workaround for the empty jar error -->
+    <resources>
+      <resource>
+        <targetPath>${binconf_directory}</targetPath>
+        <filtering>false</filtering>
+        <!-- 内置变量  ${basedir}  项目根目录 -->
+        <directory>${basedir}/framework</directory>
+      </resource>
+
+      <resource>
+        <targetPath>${binconf_directory}</targetPath>
+        <filtering>true</filtering>
+        <directory>${basedir}/auto_config/framework</directory>
+      </resource>
+    </resources>
+  </build>
+
+</project>
