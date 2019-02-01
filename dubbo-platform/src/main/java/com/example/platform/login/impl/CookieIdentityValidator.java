@@ -134,13 +134,16 @@ public abstract class CookieIdentityValidator implements IdentityValidator {
   }
 
   /**
-   * 通过调用CookieUtils查找会话cookie，<br> 如果找到，取得cookie中id，调用验证提供者的get方法，得到用户，<br>
-   * 再根据cookie摘要与生成摘要对比，如果一致再判断时间戳距离当前时间的间隔是否在合适范围，<br> 如果是返回认证用户，否则返回null
+   * 通过调用CookieUtils查找会话cookie，
+   * 如果找到，取得cookie中id，调用验证提供者的get方法，得到用户，
+   * 再根据cookie摘要与生成摘要对比，如果一致再判断时间戳距离当前时间的间隔是否在合适范围，
+   * 如果是返回认证用户，否则返回null
    *
    * @return true 表示是已登录 false 表示没有登录
    */
   @Override
   public Principal currentPrincipal() {
+    // 从当前线程中获取 Principal
     Principal principal = getRequestPrincipal();
     if (principal != null) {
       return principal;
@@ -148,9 +151,9 @@ public abstract class CookieIdentityValidator implements IdentityValidator {
     principal = getByPrincipalCookie();
     if (principal != null) {
       return principal;
-    } else {
-      return null;
     }
+
+    return null;
 
     // principal = getByAutoLogin();
     // if (principal != null) {
