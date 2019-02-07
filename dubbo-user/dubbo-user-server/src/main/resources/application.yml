@@ -1,6 +1,28 @@
 server:
-  port: 8082
+  # 应用端口
+  port: 8081
+  # tomcat 配置
+  tomcat:
+    max-threads: 500 # 最大线程数量 默认200
+    uri-encoding: UTF-8
+    max-connections: 1000 # 最大连接数量 1000
+    min-spare-threads: 50 # 初始化线程是20
+  servlet:
+    context-path: /user
 
-dubbo:
-  registry:
-    address = 47.75.95.136:80
+management:
+  endpoints.:
+    shutdown:
+      enabled: true
+      sensitive: false
+
+# javamelody
+javamelody:
+  init-parameters:
+    storage-directory: user
+
+# 激活配置文件
+spring:
+  profiles:
+    active: dev
+

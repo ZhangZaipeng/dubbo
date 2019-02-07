@@ -22,6 +22,11 @@
 
     <dependency>
       <groupId>com.example</groupId>
+      <artifactId>dubbo-platform</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.example</groupId>
       <artifactId>dubbo-user-interface</artifactId>
     </dependency>
 
@@ -63,6 +68,29 @@
       <artifactId>curator-framework</artifactId>
     </dependency>
     <!-- dubbo end -->
+
+    <!-- mybatis -->
+    <dependency>
+      <groupId>org.mybatis.spring.boot</groupId>
+      <artifactId>mybatis-spring-boot-starter</artifactId>
+    </dependency>
+
+    <!-- druid数据源 -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-redis</artifactId>
+    </dependency>
+
   </dependencies>
 
   <build>

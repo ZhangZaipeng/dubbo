@@ -11,8 +11,6 @@ import redis.clients.jedis.ScanResult;
  */
 public interface RedisFactory {
 
-  Jedis getResource();
-
   String get(String key);
 
   /**

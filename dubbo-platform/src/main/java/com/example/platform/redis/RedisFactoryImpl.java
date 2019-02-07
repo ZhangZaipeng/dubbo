@@ -18,29 +18,28 @@ import redis.clients.jedis.ScanResult;
 /**
  * 用来生成 redis 客户端的工厂类 Created by zhangzp on 2016/4/29.
  */
-@Component
 public class RedisFactoryImpl implements RedisFactory, InitializingBean {
 
   Logger logger = LoggerFactory.getLogger(RedisFactoryImpl.class);
 
-  @Value("${spring.redis.host}")
   private String ip;
-  @Value("${spring.redis.port}")
   private String port;
-  @Value("${spring.redis.password}")
   private String password;
-
-  @Value("${spring.redis.maxTotal}")
   private String maxTotal ;
-  @Value("${spring.redis.maxIdle}")
   private String maxIdle ;
-  @Value("${spring.redis.maxWaitMillis}")
   private String maxWaitMillis ;
+
+
 
   private JedisPool jedisPool;
 
+
   @Override
-  public Jedis getResource() {
+  public void afterPropertiesSet() throws Exception {
+    init();
+  }
+
+  private Jedis getResource() {
     if (jedisPool == null) {
       init();
     }
@@ -67,19 +66,6 @@ public class RedisFactoryImpl implements RedisFactory, InitializingBean {
     //当调用return Object方法时，是否进行有效性检查
     config.setTestOnReturn(false);
     jedisPool = new JedisPool(config, ip, Integer.parseInt(port), 5000, password);
-  }
-
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-  @Override
-  public void afterPropertiesSet() throws Exception {
-    init();
   }
 
   /**

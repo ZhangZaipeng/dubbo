@@ -5,9 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-// 加仓 提醒
-// 加仓线 抵押率上浮15%  平仓线 抵押率上浮10%
-// 一个小时一次
 @Component
 public class TestSync {
 

@@ -26,9 +26,6 @@ import org.slf4j.LoggerFactory;
 
 /**
  * description
- *
- * @author jianguo.xu
- * @version 1.0, 2011-2-17
  */
 public abstract class CookieIdentityValidator implements IdentityValidator {
 
