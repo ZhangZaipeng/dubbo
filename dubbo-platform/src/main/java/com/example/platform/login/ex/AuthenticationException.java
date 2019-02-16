@@ -1,7 +1,7 @@
 /**
  * @(#)AuthenticationException.java Copyright 2011 jointown, Inc. All rights reserved.
  */
-package com.example.platform.login;
+package com.example.platform.login.ex;
 
 /**
  * description

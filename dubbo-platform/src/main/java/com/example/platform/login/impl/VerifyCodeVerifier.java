@@ -3,8 +3,6 @@
  */
 package com.example.platform.login.impl;
 
-import com.example.platform.login.KeepLoginStatusVerifier;
-
 /**
  * 验证码认证校验器
  *

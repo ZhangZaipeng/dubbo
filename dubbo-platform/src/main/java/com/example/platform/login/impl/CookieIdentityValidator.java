@@ -3,9 +3,8 @@
  */
 package com.example.platform.login.impl;
 
-import com.example.platform.login.AuthenticationException;
+import com.example.platform.login.ex.AuthenticationException;
 import com.example.platform.login.AuthenticationProvider;
-import com.example.platform.login.KeepLoginStatusVerifier;
 import com.example.common.utils.StringUtils;
 import com.example.platform.YvanUtil;
 import com.example.platform.login.IdentityValidator;

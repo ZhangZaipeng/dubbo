@@ -81,7 +81,7 @@ public interface RedisFactory {
    */
   boolean lock(String key, long timeout, long lockExpireTime);
 
-  public void unLock(String key);
+  void unLock(String key);
 
 
   /**

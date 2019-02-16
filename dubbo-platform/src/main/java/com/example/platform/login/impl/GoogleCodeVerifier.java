@@ -1,7 +1,5 @@
 package com.example.platform.login.impl;
 
-import com.example.platform.login.KeepLoginStatusVerifier;
-
 public class GoogleCodeVerifier extends KeepLoginStatusVerifier {
 
   private final String loginName;

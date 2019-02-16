@@ -1,4 +1,4 @@
-package com.example.platform.login;
+package com.example.platform.login.ex;
 
 import com.example.common.response.ResponseCode;
 

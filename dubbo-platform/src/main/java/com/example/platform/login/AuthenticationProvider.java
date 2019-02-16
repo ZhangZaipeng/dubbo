@@ -3,6 +3,7 @@
  */
 package com.example.platform.login;
 
+import com.example.platform.login.ex.AuthenticationException;
 import java.io.Serializable;
 import java.util.Date;
 
