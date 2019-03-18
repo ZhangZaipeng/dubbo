@@ -2,8 +2,9 @@ package com.example.user;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
-@SpringBootApplication(scanBasePackages = "com.example")
+@SpringBootApplication(scanBasePackages = "com.example",exclude= {DataSourceAutoConfiguration.class})
 public class DubboUserApplication {
 
   public static void main(String[] args) {

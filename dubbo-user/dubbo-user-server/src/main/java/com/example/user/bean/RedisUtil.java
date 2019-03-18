@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class RedisUtil {
 
-  @Autowired
-  private RedisTemplate<String,Object> redisTemplate;
+  // @Autowired
+  // private RedisTemplate<String,Object> redisTemplate;
 
 }
