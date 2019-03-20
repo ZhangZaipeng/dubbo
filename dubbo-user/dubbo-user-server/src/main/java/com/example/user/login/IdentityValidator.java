@@ -1,6 +1,6 @@
-package com.example.platform.login;
+package com.example.user.login;
 
-import com.example.platform.login.ex.AuthenticationException;
+import com.example.user.login.ex.AuthenticationException;
 
 /**
  * 身份验证接口

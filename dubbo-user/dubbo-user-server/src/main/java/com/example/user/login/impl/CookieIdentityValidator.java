@@ -1,16 +1,16 @@
 /**
  * @(#)CookieIdentityValidatorImpl.java Copyright 2011 jointown, Inc. All rights reserved.
  */
-package com.example.platform.login.impl;
+package com.example.user.login.impl;
 
-import com.example.platform.login.ex.AuthenticationException;
-import com.example.platform.login.AuthenticationProvider;
+import com.example.user.login.AuthenticationProvider;
+import com.example.user.login.IdentityValidator;
+import com.example.user.login.Principal;
+import com.example.user.login.UUIDGenerator;
+import com.example.user.login.Verifier;
+import com.example.user.login.ex.AuthenticationException;
 import com.example.common.utils.StringUtils;
 import com.example.platform.YvanUtil;
-import com.example.platform.login.IdentityValidator;
-import com.example.platform.login.Principal;
-import com.example.platform.login.UUIDGenerator;
-import com.example.platform.login.Verifier;
 import com.example.platform.springmvc.WebContext;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;

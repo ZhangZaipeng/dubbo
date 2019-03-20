@@ -1,9 +1,10 @@
 /**
  * @(#)KeepVerifier.java Copyright 2011 jointown, Inc. All rights reserved.
  */
-package com.example.platform.login.impl;
+package com.example.user.login.impl;
 
-import com.example.platform.login.Verifier;
+
+import com.example.user.login.Verifier;
 
 /**
  * 提供保持登录状态的校验器

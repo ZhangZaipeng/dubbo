@@ -1,9 +1,9 @@
 /**
  * @(#)AuthenticationProvider.java Copyright 2011 jointown, Inc. All rights reserved.
  */
-package com.example.platform.login;
+package com.example.user.login;
 
-import com.example.platform.login.ex.AuthenticationException;
+import com.example.user.login.ex.AuthenticationException;
 import java.io.Serializable;
 import java.util.Date;
 
