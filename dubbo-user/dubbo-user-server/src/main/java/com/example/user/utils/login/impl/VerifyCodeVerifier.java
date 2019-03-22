@@ -1,7 +1,7 @@
 /**
  * @(#)PasswordVerifier.java Copyright 2011 jointown, Inc. All rights reserved.
  */
-package com.example.user.login.impl;
+package com.example.user.utils.login.impl;
 
 /**
  * 验证码认证校验器

@@ -1,7 +1,7 @@
 /**
  * @(#)Principal.java Copyright 2011 jointown, Inc. All rights reserved.
  */
-package com.example.user.login;
+package com.example.user.utils.login;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;

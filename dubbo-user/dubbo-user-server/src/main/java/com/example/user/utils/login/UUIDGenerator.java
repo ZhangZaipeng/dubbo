@@ -1,4 +1,4 @@
-package com.example.user.login;
+package com.example.user.utils.login;
 
 import java.util.UUID;
 

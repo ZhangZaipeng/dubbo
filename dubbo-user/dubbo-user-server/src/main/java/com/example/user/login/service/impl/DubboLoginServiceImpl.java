@@ -1,10 +1,10 @@
-package com.example.user.service;
+package com.example.user.login.service.impl;
 
-import com.example.user.LoginService;
+import com.example.user.DubboLoginService;
 import org.springframework.stereotype.Service;
 
 @Service("loginService")
-public class LoginServiceImpl implements LoginService {
+public class DubboLoginServiceImpl implements DubboLoginService {
 
   @Override
   public String SayHello(String p) {

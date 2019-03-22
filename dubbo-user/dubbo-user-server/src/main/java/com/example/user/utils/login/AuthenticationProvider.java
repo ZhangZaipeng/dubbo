@@ -1,9 +1,9 @@
 /**
  * @(#)AuthenticationProvider.java Copyright 2011 jointown, Inc. All rights reserved.
  */
-package com.example.user.login;
+package com.example.user.utils.login;
 
-import com.example.user.login.ex.AuthenticationException;
+import com.example.user.utils.ex.AuthenticationException;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -25,7 +25,7 @@ public interface AuthenticationProvider {
   /**
    * 清空 用户标识 uuid
    */
-  public Long rm(String uuid);
+  public boolean rm(String uuid);
 
   /**
    * 验证用户

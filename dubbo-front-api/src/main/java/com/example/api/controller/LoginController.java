@@ -1,6 +1,6 @@
 package com.example.api.controller;
 
-import com.example.user.LoginService;
+import com.example.user.DubboLoginService;
 import com.example.wallet.WalletService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class LoginController {
 
   @Autowired
-  private LoginService loginService;
+  private DubboLoginService loginService;
 
   @Autowired
   private WalletService walletService;

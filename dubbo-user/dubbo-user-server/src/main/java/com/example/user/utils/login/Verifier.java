@@ -1,7 +1,7 @@
 /**
  * @(#)Verifier.java Copyright 2011 jointown, Inc. All rights reserved.
  */
-package com.example.user.login;
+package com.example.user.utils.login;
 
 /**
  * 检验器

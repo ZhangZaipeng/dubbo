@@ -1,9 +1,9 @@
 /**
  * @(#)CertificateVerifier.java Copyright 2011 jointown, Inc. All rights reserved.
  */
-package com.example.user.login.impl;
+package com.example.user.utils.login.impl;
 
-import com.example.user.login.Verifier;
+import com.example.user.utils.login.Verifier;
 import java.security.cert.X509Certificate;
 
 /**

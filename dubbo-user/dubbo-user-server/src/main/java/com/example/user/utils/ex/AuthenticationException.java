@@ -1,7 +1,7 @@
 /**
  * @(#)AuthenticationException.java Copyright 2011 jointown, Inc. All rights reserved.
  */
-package com.example.user.login.ex;
+package com.example.user.utils.ex;
 
 /**
  * description

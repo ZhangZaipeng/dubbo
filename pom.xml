@@ -289,4 +289,88 @@
 
   </dependencyManagement>
 
+  <build>
+    <sourceDirectory>src/main/java</sourceDirectory>
+    <testSourceDirectory>src/test/java</testSourceDirectory>
+
+    <resources>
+      <resource>
+        <!-- 指定处理主资源目录  -->
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.xml</include>
+          <include>**/*.js</include>
+        </includes>
+        <excludes>
+          <exclude>**/*.java</exclude>
+          <exclude>**/*.iml/</exclude>
+        </excludes>
+        <filtering>false</filtering>
+      </resource>
+
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>**/*.properties</include>
+          <include>**/*.yml</include>
+          <include>**/*.xml</include>
+        </includes>
+        <excludes>
+          <exclude>**/*.iml/</exclude>
+        </excludes>
+        <!--是否对主资源目录开启资源过滤-->
+        <filtering>true</filtering>
+      </resource>
+
+      <resource>
+        <directory>src/main/resources</directory>
+        <excludes>
+          <exclude>**/*.properties</exclude>
+          <exclude>**/*.yml</exclude>
+          <exclude>**/*.xml</exclude>
+        </excludes>
+        <!--是否对主资源目录开启资源过滤-->
+        <filtering>false</filtering>
+      </resource>
+    </resources>
+
+    <plugins>
+      <plugin>
+        <!-- 用来处理资源文件 -->
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.5</version>
+        <configuration>
+          <delimiters>
+            <delimiter>${*}</delimiter>
+          </delimiters>
+          <useDefaultDelimiters>false</useDefaultDelimiters>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.4.3</version>
+        <!-- MAVEN的maven-surefire-plugin在新建JVM进程后,由于没有指定encoding,
+                    采用了OS的默认编码,导致读取UTF-8文件(测试类的sql脚本文件)时出现乱码,最终影响了TestNG的正确执行 -->
+        <configuration>
+          <argLine>-Dfile.encoding=UTF-8</argLine>
+          <skipTests>true</skipTests>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+          <compilerArguments>
+            <!-- windows下使用分号（;）分隔，linux/mac下使用冒号（:）分隔 -->
+            <bootclasspath>${java.home}/lib/rt.jar:${java.home}/lib/jce.jar</bootclasspath>
+          </compilerArguments>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>

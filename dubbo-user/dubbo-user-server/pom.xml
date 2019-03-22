@@ -70,15 +70,15 @@
     <!-- dubbo end -->
 
     <!-- mybatis -->
-    <!--<dependency>
+    <dependency>
       <groupId>org.mybatis.spring.boot</groupId>
       <artifactId>mybatis-spring-boot-starter</artifactId>
-    </dependency>-->
+    </dependency>
 
-    <!--<dependency>
+    <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-redis</artifactId>
-    </dependency>-->
+    </dependency>
 
     <!-- druid数据源 -->
     <dependency>
@@ -91,6 +91,16 @@
       <artifactId>mysql-connector-java</artifactId>
     </dependency>
 
+    <!-- swagger -->
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger2</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger-ui</artifactId>
+    </dependency>
+    <!-- swagger end -->
 
 
   </dependencies>
