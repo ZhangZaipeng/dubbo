@@ -6,7 +6,7 @@ spring:
     # driverClassName: net.sf.log4jdbc.DriverSpy
     # url: jdbc:log4jdbc:mysql://mysql.zhangzp.cn:3306/hadoop2
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.1.241:3306/test?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://192.168.1.241:3306/test
     username: admin
     password: bckj2018
     filters: stat
@@ -30,7 +30,7 @@ spring:
       maxRequestSize: 100MB
   ###redis配置
   redis:
-    host: 192.168.0.226
+    host: 192.168.1.223
     port: 46379
     password: 123456
     database: 0

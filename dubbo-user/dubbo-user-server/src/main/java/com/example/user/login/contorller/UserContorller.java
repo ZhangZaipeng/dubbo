@@ -54,7 +54,7 @@ public class UserContorller {
     return userService.register(userName, pwd);
   }
 
-  @ApiOperation(value = "注册", httpMethod = "POST")
+  @ApiOperation(value = "获取信息", httpMethod = "POST")
   @ApiImplicitParams({
       @ApiImplicitParam(name = "userName", value = "userName",
           required = true, paramType = "query", dataType = "string"),

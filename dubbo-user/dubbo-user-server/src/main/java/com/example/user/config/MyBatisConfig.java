@@ -34,13 +34,4 @@ public class MyBatisConfig {
     return sqlSessionFactoryBean.getObject();
   }
 
-  @Bean
-  public MapperScannerConfigurer mapperScannerConfigurer(){
-    MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
-    mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
-    mapperScannerConfigurer.setBasePackage("com.example");
-    mapperScannerConfigurer.setMarkerInterface(DefaultMapper.class);
-    return mapperScannerConfigurer;
-  }
-
 }

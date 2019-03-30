@@ -21,7 +21,8 @@ public class RedisUtils {
   }
 
   public static boolean del(String cacheKey) {
-    return redisTemplate.delete(cacheKey);
+    redisTemplate.delete(cacheKey);
+    return true;
   }
 
   public static void setex(String cacheKey, int expireSec, String v) {

@@ -91,7 +91,7 @@ public class AuthenticationProviderImpl implements AuthenticationProvider {
 
       // 更新登录次数 最后登录时间
       userAgentMapper.loginSuccess(userAgent.getUserAgentId(),
-          DateUtils.format(new Date(lastLoginTime*1000),"yyyy-MM-dd HH:mm:ss"));
+          DateUtils.format(new Date(lastLoginTime * 1000),"yyyy-MM-dd HH:mm:ss"));
       userAgent.setLastLoginTime(lastLoginTime);
 
       addToCache(userAgent);

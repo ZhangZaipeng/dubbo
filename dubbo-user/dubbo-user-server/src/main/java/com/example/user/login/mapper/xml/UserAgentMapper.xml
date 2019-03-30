@@ -8,13 +8,13 @@
     <result column="login_name" property="loginName" jdbcType="VARCHAR" />
     <result column="login_pwd" property="loginPwd" jdbcType="VARCHAR" />
     <result column="telephone" property="telephone" jdbcType="VARCHAR" />
-    <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="last_login_time" property="lastLoginTime" jdbcType="TIMESTAMP" />
     <result column="login_count" property="loginCount" jdbcType="INTEGER" />
     <result column="deleted" property="deleted" jdbcType="SMALLINT" />
     <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
     <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />
   </resultMap>
+
   <insert id="insertSelective" parameterType="com.example.user.login.domain.UserAgent" >
     insert into tb_user_agent
     <trim prefix="(" suffix=")" suffixOverrides="," >
@@ -32,9 +32,6 @@
       </if>
       <if test="telephone != null" >
         telephone,
-      </if>
-      <if test="email != null" >
-        email,
       </if>
       <if test="lastLoginTime != null" >
         last_login_time,
@@ -68,9 +65,6 @@
       <if test="telephone != null" >
         #{telephone,jdbcType=VARCHAR},
       </if>
-      <if test="email != null" >
-        #{email,jdbcType=VARCHAR},
-      </if>
       <if test="lastLoginTime != null" >
         #{lastLoginTime,jdbcType=TIMESTAMP},
       </if>
@@ -88,11 +82,11 @@
       </if>
     </trim>
   </insert>
+
   <select id="selectByLoginName" parameterType="java.lang.String" resultMap="userAgentMap">
     select *
     from tb_user_agent
-    where telephone = #{loginName, jdbcType=VARCHAR}
-    or email = #{loginName, jdbcType=VARCHAR} or login_name =#{loginName}
+    where telephone = #{loginName, jdbcType=VARCHAR} or login_name =#{loginName}
   </select>
 
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="userAgentMap">
