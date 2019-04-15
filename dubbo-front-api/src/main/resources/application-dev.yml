@@ -1,0 +1,6 @@
+spring:
+  dubbo:
+    appname: front-api-consumer
+    registry: zookeeper://47.75.95.136:80
+    protocol: dubbo
+    port: 20880

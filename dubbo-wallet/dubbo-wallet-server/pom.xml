@@ -45,15 +45,10 @@
 
     <!-- dubbo start -->
     <dependency>
-      <groupId>com.alibaba</groupId>
-      <artifactId>dubbo</artifactId>
+      <groupId>com.alibaba.spring.boot</groupId>
+      <artifactId>dubbo-spring-boot-starter</artifactId>
+      <version>1.0.0</version>
     </dependency>
-
-    <dependency>
-      <groupId>org.apache.zookeeper</groupId>
-      <artifactId>zookeeper</artifactId>
-    </dependency>
-
     <dependency>
       <groupId>com.101tec</groupId>
       <artifactId>zkclient</artifactId>

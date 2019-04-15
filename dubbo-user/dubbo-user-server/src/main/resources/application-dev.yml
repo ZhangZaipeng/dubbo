@@ -6,9 +6,9 @@ spring:
     # driverClassName: net.sf.log4jdbc.DriverSpy
     # url: jdbc:log4jdbc:mysql://mysql.zhangzp.cn:3306/hadoop2
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.1.241:3306/test
-    username: admin
-    password: bckj2018
+    url: jdbc:mysql://localhost:3306/user
+    username: root
+    password: 123456
     filters: stat
     maxActive: 30
     initialSize: 5
@@ -30,9 +30,9 @@ spring:
       maxRequestSize: 100MB
   ###redis配置
   redis:
-    host: 192.168.1.223
-    port: 46379
-    password: 123456
+    host: 127.0.0.1
+    port: 6379
+    password:
     database: 0
     jedis:
       pool:
@@ -44,7 +44,11 @@ spring:
         min-idle: 1
         # 连接池最大阻塞等待时间
         max-wait: -1
-
+  dubbo:
+    appname: user-service-provider
+    registry: zookeeper://47.75.95.136:80
+    protocol: dubbo
+    port: 20800
 ### 文件上传
 oss:
   # OSS访问编号

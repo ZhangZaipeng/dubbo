@@ -1,7 +1,7 @@
 package com.example.platform.monitoring;
 
-import net.bull.javamelody.MonitoringFilter;
-import net.bull.javamelody.SessionListener;
+//import net.bull.javamelody.MonitoringFilter;
+//import net.bull.javamelody.SessionListener;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -12,10 +12,10 @@ import org.springframework.core.annotation.Order;
  * Created by zhangzp on 2018/9/19.
  * java 项目监控
  */
-@Configuration
+//@Configuration
 public class JavamelodyConfiguration {
 
-    @Bean
+    /*@Bean
     @Order(Integer.MAX_VALUE-1)
     public FilterRegistrationBean monitoringFilter() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
@@ -30,6 +30,6 @@ public class JavamelodyConfiguration {
         ServletListenerRegistrationBean<SessionListener> slrBean = new ServletListenerRegistrationBean<SessionListener>();
         slrBean.setListener(new SessionListener());
         return slrBean;
-    }
+    }*/
 
 }

@@ -17,6 +17,7 @@
   <modules>
     <module>dubbo-user-server</module>
     <module>dubbo-user-interface</module>
+    <module>dubbo-user-provider</module>
   </modules>
 
   <properties>

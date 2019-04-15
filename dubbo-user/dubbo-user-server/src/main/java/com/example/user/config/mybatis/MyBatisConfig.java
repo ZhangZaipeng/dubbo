@@ -1,4 +1,4 @@
-package com.example.user.config;
+package com.example.user.config.mybatis;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.example.platform.mybatis.DefaultMapper;

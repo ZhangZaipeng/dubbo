@@ -1,11 +1,10 @@
-package com.example.user.config;
+package com.example.user.config.mybatis;
 
 import com.example.platform.mybatis.DefaultMapper;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * created by pansai on 2018/10/16

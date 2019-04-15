@@ -7,14 +7,7 @@ server:
     uri-encoding: UTF-8
     max-connections: 1000 # 最大连接数量 1000
     min-spare-threads: 50 # 初始化线程是20
-  servlet:
-    context-path: /user
-
-management:
-  endpoints.:
-    shutdown:
-      enabled: true
-      sensitive: false
+  context-path: /user
 
 # javamelody
 javamelody:

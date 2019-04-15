@@ -9,16 +9,27 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>dubbo-front-api</artifactId>
+  <artifactId>dubbo-user-provider</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>dubbo-front-api</name>
+  <name>dubbo-user-server</name>
 
   <properties>
     <java.version>1.8</java.version>
   </properties>
 
   <dependencies>
+
+    <dependency>
+      <groupId>com.example</groupId>
+      <artifactId>dubbo-platform</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.example</groupId>
+      <artifactId>dubbo-user-interface</artifactId>
+    </dependency>
+
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
@@ -28,23 +39,6 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>com.example</groupId>
-      <artifactId>dubbo-user-interface</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>com.example</groupId>
-      <artifactId>dubbo-wallet-interface</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
-      <scope>test</scope>
-      <version>1.5.2.RELEASE</version>
     </dependency>
 
     <!-- dubbo start -->
@@ -58,11 +52,29 @@
       <artifactId>zkclient</artifactId>
       <version>0.10</version>
     </dependency>
-    <dependency>
-      <groupId>org.apache.curator</groupId>
-      <artifactId>curator-framework</artifactId>
-    </dependency>
     <!-- dubbo end -->
+
+    <!-- mybatis -->
+    <dependency>
+      <groupId>org.mybatis.spring.boot</groupId>
+      <artifactId>mybatis-spring-boot-starter</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-redis</artifactId>
+    </dependency>
+
+    <!-- druid数据源 -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+    </dependency>
 
   </dependencies>
 
