@@ -1,4 +1,4 @@
-package com.example.user.login.service.impl;
+package com.example.userp.login.service;
 
 import com.example.user.DubboLoginService;
 import org.springframework.stereotype.Service;

@@ -5,14 +5,14 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.example</groupId>
-    <artifactId>dubbo</artifactId>
+    <artifactId>dubbo-wallet</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>dubbo-user-provider</artifactId>
+  <artifactId>dubbo-wallet-provider</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>dubbo-user-server</name>
+  <name>dubbo-wallet-provider</name>
 
   <properties>
     <java.version>1.8</java.version>
@@ -27,7 +27,7 @@
 
     <dependency>
       <groupId>com.example</groupId>
-      <artifactId>dubbo-user-interface</artifactId>
+      <artifactId>dubbo-wallet-interface</artifactId>
     </dependency>
 
     <dependency>
@@ -50,7 +50,6 @@
     <dependency>
       <groupId>com.101tec</groupId>
       <artifactId>zkclient</artifactId>
-      <version>0.10</version>
     </dependency>
     <dependency>
       <groupId>org.apache.curator</groupId>

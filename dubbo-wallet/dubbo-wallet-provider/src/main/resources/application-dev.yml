@@ -45,18 +45,7 @@ spring:
         # 连接池最大阻塞等待时间
         max-wait: -1
   dubbo:
-    appname: user-service-consumer
+    appname: wallet-service-provider
     registry: zookeeper://47.75.95.136:80
     protocol: dubbo
-
-### 文件上传
-oss:
-  # OSS访问编号
-  accessKeyId: LTAIp4oYoDb2fhKV
-  # OSS访问密钥
-  accessKeySecret: ZGMCYSSq8FZ7xXMqpyhzaHvmSZ6PyN
-  # OSS存储空间
-  bucketName: shanghai-ex-file
-  file:
-    maxsize: 102400
-    file_img_extension: bmp,jpg,gif,jpeg,png
+    port: 20801

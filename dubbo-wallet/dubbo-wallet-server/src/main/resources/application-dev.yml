@@ -1,6 +1,5 @@
 spring:
   dubbo:
-    appname: wallet-service-provider
+    appname: wallet-service-consumer
     registry: zookeeper://47.75.95.136:80
     protocol: dubbo
-    port: 20801

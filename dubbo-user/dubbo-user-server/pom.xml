@@ -27,7 +27,7 @@
 
     <dependency>
       <groupId>com.example</groupId>
-      <artifactId>dubbo-user-interface</artifactId>
+      <artifactId>dubbo-wallet-interface</artifactId>
     </dependency>
 
     <dependency>

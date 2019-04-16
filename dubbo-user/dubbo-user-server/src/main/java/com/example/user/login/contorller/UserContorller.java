@@ -3,6 +3,7 @@ package com.example.user.login.contorller;
 import com.example.common.response.ResponseModel;
 import com.example.platform.platform.HttpParameterParser;
 import com.example.user.login.service.UserService;
+import com.example.wallet.DubboWalletService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -21,6 +22,9 @@ public class UserContorller {
 
   @Autowired
   private UserService userService;
+
+  @Autowired
+  private DubboWalletService dubboWalletService;
 
   @ApiOperation(value = "登录", httpMethod = "POST")
   @ApiImplicitParams({
@@ -65,5 +69,11 @@ public class UserContorller {
     String userName = httpParameterParser.getString("userName");
     return userService.getInfo(userName);
   }
+
+  @RequestMapping(value = "/test.json", method = RequestMethod.GET)
+  public ResponseModel test() {
+    return ResponseModel.ok(dubboWalletService.SayHello("test"));
+  }
+
 
 }
