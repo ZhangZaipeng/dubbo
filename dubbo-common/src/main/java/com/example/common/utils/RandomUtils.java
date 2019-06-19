@@ -1,6 +1,6 @@
 package com.example.common.utils;
 
-import com.example.common.crypt.MD5Utils;
+import com.example.common.utils.crypt.MD5Utils;
 import java.util.Random;
 import java.util.UUID;
 

@@ -1,4 +1,4 @@
-package com.example.common.google;
+package com.example.common.utils.google;
 
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;

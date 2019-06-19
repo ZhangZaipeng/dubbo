@@ -1,7 +1,9 @@
 package com.example.common.response;
 
+import com.example.common.exception.ResultErrException;
 import java.util.HashMap;
 import java.util.Map;
+import javax.jws.Oneway;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -83,17 +85,26 @@ public class ResponseModel extends HashMap<String, Object> {
     return this;
   }
 
-  public Map getData() {
-    return (Map) get("data");
+  public Object getData() {
+    return get("data");
   }
 
   public ResponseModel setData(String key, Object val) {
-    Map data = getData();
+    Object data = getData();
     if (data == null) {
-      data = new HashMap(1);
+      Map<String, Object> map = new HashMap(1);
+      map.put(key, val);
+      data = map;
+      this.put(DATA, data);
+    } else {
+      if (data instanceof Map) {
+        Map<String, Object> map  = (Map)data;
+        map.put(key, val);
+      } else {
+        throw new ResultErrException("未知的data类型");
+      }
+      this.put(DATA, data);
     }
-    data.put(key, val);
-    this.put(DATA, data);
     return this;
   }
 }

@@ -1,7 +1,7 @@
 package com.example.common.utils;
 
-import com.example.common.crypt.Base64;
-import com.example.common.crypt.MD5Utils;
+import com.example.common.utils.crypt.Base64;
+import com.example.common.utils.crypt.MD5Utils;
 import java.security.Key;
 import javax.crypto.Cipher;
 import javax.crypto.SecretKeyFactory;

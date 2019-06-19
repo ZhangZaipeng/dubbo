@@ -1,4 +1,4 @@
-package com.example.common.date;
+package com.example.common.utils.date;
 
 import com.example.common.utils.StringUtils;
 import java.util.Date;

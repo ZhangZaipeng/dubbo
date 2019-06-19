@@ -1,7 +1,7 @@
 package com.example.user.login.service.impl;
 
-import com.example.common.crypt.BCrypt;
-import com.example.common.date.DateUtils;
+import com.example.common.utils.crypt.BCrypt;
+import com.example.common.utils.date.DateUtils;
 import com.example.common.exception.ResultErrException;
 import com.example.common.utils.StringUtils;
 import com.example.platform.Conv;

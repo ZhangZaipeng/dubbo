@@ -1,4 +1,4 @@
-package com.example.common.crypt;
+package com.example.common.utils.crypt;
 
 import java.security.Key;
 import java.security.KeyFactory;

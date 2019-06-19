@@ -1,4 +1,4 @@
-package com.example.common.crypt;
+package com.example.common.utils.crypt;
 
 import com.example.common.utils.StringUtils;
 import java.security.MessageDigest;
