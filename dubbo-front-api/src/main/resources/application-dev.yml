@@ -1,6 +1,47 @@
 spring:
+  # 表示放在classpath的i18n文件夹，文件前缀为mess
+  #  messages:
+  #    basename: language/messages
+  # Spring boot http编码配置(CharacterEncodingFilter)
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+  ###文件上传限制
+  servlet:
+    multipart:
+      maxFileSize: 100MB
+      maxRequestSize: 100MB
+  ###redis配置
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    database: 0
+    jedis:
+      pool:
+        # 连接池中的最大空闲连接
+        max-active: 200
+        # 连接池中的最大空闲连接
+        max-idle: 10
+        # 连接池中的最大空闲连接
+        min-idle: 1
+        # 连接池最大阻塞等待时间
+        max-wait: -1
   dubbo:
     appname: front-api-consumer
     registry: zookeeper://47.75.95.136:80
     protocol: dubbo
-    port: 20880
+
+### 文件上传
+oss:
+  # OSS访问编号
+  accessKeyId: LTAIp4oYoDb2fhKV
+  # OSS访问密钥
+  accessKeySecret: ZGMCYSSq8FZ7xXMqpyhzaHvmSZ6PyN
+  # OSS存储空间
+  bucketName: shanghai-ex-file
+  file:
+    maxsize: 102400
+    file_img_extension: bmp,jpg,gif,jpeg,png

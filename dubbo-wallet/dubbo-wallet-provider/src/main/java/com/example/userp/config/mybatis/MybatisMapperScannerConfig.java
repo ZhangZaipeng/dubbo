@@ -1,6 +1,6 @@
 package com.example.userp.config.mybatis;
 
-import com.example.platform.mybatis.DefaultMapper;
+import com.example.common.mybatis.DefaultMapper;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;

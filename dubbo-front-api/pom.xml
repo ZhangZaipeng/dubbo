@@ -31,6 +31,16 @@
     </dependency>
 
     <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-redis</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.example</groupId>
+      <artifactId>dubbo-common</artifactId>
+    </dependency>
+
+    <dependency>
       <groupId>com.example</groupId>
       <artifactId>dubbo-user-interface</artifactId>
     </dependency>
@@ -63,6 +73,17 @@
       <artifactId>curator-framework</artifactId>
     </dependency>
     <!-- dubbo end -->
+
+    <!-- swagger -->
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger2</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger-ui</artifactId>
+    </dependency>
+    <!-- swagger end -->
 
   </dependencies>
 

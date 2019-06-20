@@ -26,17 +26,17 @@
       <property name="forceBigDecimals" value="false"/>
     </javaTypeResolver>
 
-    <javaModelGenerator targetPackage="com.example.user.login.domain"
+    <javaModelGenerator targetPackage="com.example.api.login.domain"
       targetProject="src/main/java">
       <property name="enableSubPackages" value="true"/>
     </javaModelGenerator>
 
-    <sqlMapGenerator targetPackage="com.example.user.login.mapper"
+    <sqlMapGenerator targetPackage="com.example.api.login.mapper"
       targetProject="src/main/java">
       <property name="enableSubPackages" value="true"/>
     </sqlMapGenerator>
 
-    <javaClientGenerator targetPackage="com.example.user.login.mapper"
+    <javaClientGenerator targetPackage="com.example.api.login.mapper"
       targetProject="src/main/java" type="XMLMAPPER">
       <property name="enableSubPackages" value="true"/>
       <property name="methodNameCalculator" value="extended"/>

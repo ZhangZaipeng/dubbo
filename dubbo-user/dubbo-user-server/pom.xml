@@ -22,7 +22,7 @@
 
     <dependency>
       <groupId>com.example</groupId>
-      <artifactId>dubbo-platform</artifactId>
+      <artifactId>dubbo-common</artifactId>
     </dependency>
 
     <dependency>
