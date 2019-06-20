@@ -1,4 +1,4 @@
-package com.example.task.config;
+package com.example.job.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.PropertySource;
  * @author zhangzaipeng
  **/
 @Configuration
-@PropertySource("classpath:dubbo/dubbo.properties")
+// @PropertySource("classpath:dubbo/dubbo.properties")
 @ImportResource({"classpath:dubbo/*.xml"})
 public class DubboConfig {
 

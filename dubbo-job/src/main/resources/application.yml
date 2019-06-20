@@ -1,6 +1,0 @@
-server:
-  port: 8080
-
-dubbo:
-  registry:
-    address: 47.75.95.136:80
