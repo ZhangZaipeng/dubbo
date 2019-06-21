@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
  *
  * @author xuxueli 2015-12-19 19:43:36
  */
-@JobHandler(value="demoJobHandler")
+@JobHandler(value="demoJobHandler1")
 @Component
 public class DemoJobHandler extends IJobHandler {
 

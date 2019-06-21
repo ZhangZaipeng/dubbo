@@ -1,6 +1,6 @@
 package com.example.api.filter;
 
-import com.example.common.springmvc.WebContextFilter;
+import com.example.base.springmvc.WebContextFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

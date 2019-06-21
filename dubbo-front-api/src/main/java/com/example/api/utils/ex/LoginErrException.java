@@ -1,6 +1,6 @@
 package com.example.api.utils.ex;
 
-import com.example.common.response.ResponseCode;
+import com.example.base.response.ResponseCode;
 
 public class LoginErrException extends RuntimeException {
 

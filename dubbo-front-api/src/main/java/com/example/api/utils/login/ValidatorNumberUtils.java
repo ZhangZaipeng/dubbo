@@ -3,8 +3,8 @@
  */
 package com.example.api.utils.login;
 
-import com.example.common.utils.StringUtils;
-import com.example.common.utils.platform.YvanUtil;
+import com.example.base.utils.StringUtils;
+import com.example.base.utils.platform.YvanUtil;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;

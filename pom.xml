@@ -16,12 +16,11 @@
   <description>Demo project for Spring Boot</description>
 
   <modules>
-    <module>dubbo-common</module>
+    <module>dubbo-base</module>
+    <module>dubbo-template</module>
     <module>dubbo-admin</module>
     <module>dubbo-front-api</module>
-    <module>dubbo-user</module>
     <module>dubbo-xxl-job</module>
-    <module>dubbo-wallet</module>
     <module>dubbo-deploy</module>
   </modules>
 
@@ -40,24 +39,13 @@
       <!-- interface dependencies -->
       <dependency>
         <groupId>com.example</groupId>
-        <artifactId>dubbo-common</artifactId>
+        <artifactId>dubbo-base</artifactId>
         <version>0.0.1-SNAPSHOT</version>
       </dependency>
 
       <dependency>
         <groupId>com.example</groupId>
-        <artifactId>dubbo-platform</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-      </dependency>
-
-      <dependency>
-        <groupId>com.example</groupId>
-        <artifactId>dubbo-wallet-interface</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-      </dependency>
-      <dependency>
-        <groupId>com.example</groupId>
-        <artifactId>dubbo-user-interface</artifactId>
+        <artifactId>dubbo-template-interface</artifactId>
         <version>0.0.1-SNAPSHOT</version>
       </dependency>
       <!-- interface dependencies -->
