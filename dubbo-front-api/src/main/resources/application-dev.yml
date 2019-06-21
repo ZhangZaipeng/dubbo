@@ -30,9 +30,11 @@ spring:
         # 连接池最大阻塞等待时间
         max-wait: -1
   dubbo:
-    appname: front-api-consumer
-    registry: zookeeper://47.75.95.136:80
+    appname: api-service-consumer
+    registry: zookeeper://192.168.1.193:2181
     protocol: dubbo
+    port: -1
+    threads: 500
 
 ### 文件上传
 oss:

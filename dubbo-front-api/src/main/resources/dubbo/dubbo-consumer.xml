@@ -7,8 +7,7 @@
         http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
 	<!-- 声明需要暴露的服务接口 -->
-	<dubbo:reference id="loginService" interface="com.example.user.DubboLoginService"/>
-	<dubbo:reference id="walletService" interface="com.example.wallet.DubboWalletService"/>
+	<dubbo:reference id="templateService" interface="com.example.template.DubboTemplateService"/>
 
 </beans>
 

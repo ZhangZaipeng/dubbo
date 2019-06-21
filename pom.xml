@@ -48,6 +48,7 @@
         <artifactId>dubbo-template-interface</artifactId>
         <version>0.0.1-SNAPSHOT</version>
       </dependency>
+
       <!-- interface dependencies -->
 
       <!-- servlet -->

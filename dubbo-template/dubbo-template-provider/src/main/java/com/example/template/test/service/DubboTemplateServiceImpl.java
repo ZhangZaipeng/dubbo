@@ -3,7 +3,7 @@ package com.example.template.test.service;
 import com.example.template.DubboTemplateService;
 import org.springframework.stereotype.Service;
 
-@Service("loginService")
+@Service("templateService")
 public class DubboTemplateServiceImpl implements DubboTemplateService {
 
   @Override

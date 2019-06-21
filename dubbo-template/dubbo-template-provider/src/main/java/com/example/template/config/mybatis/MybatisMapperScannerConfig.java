@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Configuration;
 /**
  * created by zhangzaipeng on 2018/10/16
  */
-@Configuration
-@AutoConfigureAfter(MyBatisConfig.class)
+//@Configuration
+//@AutoConfigureAfter(MyBatisConfig.class)
 public class MybatisMapperScannerConfig {
 
   @Bean

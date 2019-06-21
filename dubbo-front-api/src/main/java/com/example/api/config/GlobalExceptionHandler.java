@@ -1,5 +1,6 @@
-package com.example.base.exception;
+package com.example.api.config;
 
+import com.example.base.exception.ResultErrException;
 import com.example.base.response.ResponseCode;
 import com.example.base.response.ResponseModel;
 import java.io.ByteArrayOutputStream;
