@@ -12,7 +12,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 /**
  * Created by zhangzp on 2018/8/27.
  */
-//@Configuration
+@Configuration
 public class  MyBatisConfig {
   private static final String MAPPER_LOCATION = "classpath:com/example/**/*Mapper.xml";
 

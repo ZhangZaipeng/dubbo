@@ -15,9 +15,9 @@ spring:
       maxRequestSize: 100MB
   ###redis配置
   redis:
-    host: 127.0.0.1
-    port: 6379
-    password:
+    host: 192.168.1.221
+    port: 46379
+    password: 123456
     database: 0
     jedis:
       pool:
@@ -31,10 +31,13 @@ spring:
         max-wait: -1
   dubbo:
     appname: api-service-consumer
+    server: false
     registry: zookeeper://192.168.1.193:2181
+    monitor:
     protocol: dubbo
     port: -1
     threads: 500
+    version: 1.0.0
 
 ### 文件上传
 oss:

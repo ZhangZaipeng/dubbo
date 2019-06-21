@@ -158,23 +158,9 @@
 
       <!-- dubbo start -->
       <dependency>
-        <groupId>com.alibaba</groupId>
-        <artifactId>dubbo</artifactId>
-        <version>${dubbo.version}</version>
-        <exclusions>
-          <exclusion>
-            <artifactId>spring</artifactId>
-            <groupId>org.springframework</groupId>
-          </exclusion>
-          <exclusion>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-          </exclusion>
-        </exclusions>
+        <groupId>com.alibaba.spring.boot</groupId>
+        <artifactId>dubbo-spring-boot-starter</artifactId>
+        <version>1.0.2</version>
       </dependency>
 
       <dependency>
