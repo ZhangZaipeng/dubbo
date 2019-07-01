@@ -43,14 +43,6 @@
         <version>0.0.1-SNAPSHOT</version>
       </dependency>
 
-      <dependency>
-        <groupId>com.example</groupId>
-        <artifactId>dubbo-template-interface</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-      </dependency>
-
-      <!-- interface dependencies -->
-
       <!-- servlet -->
       <dependency>
         <groupId>javax.servlet</groupId>

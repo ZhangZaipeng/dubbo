@@ -18,6 +18,7 @@
 1.文件上传：http  -->  dubbo service --> 数据库
 	  oss得到path  -->  传输path  -->  存path
 2.vo,po,bo,dto,dao
+3. docker 每个服务都必须使用静态ip
 
 运维：
   数据迁移: RabbitMq, redis, elasticsearch, Mysql。
