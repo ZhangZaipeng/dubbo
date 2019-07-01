@@ -1,4 +1,4 @@
-package com.example.template;
+package com.example.base.ts.template;
 
 public interface DubboTemplateService {
 
