@@ -48,6 +48,12 @@ spring:
         min-idle: 1
         # 连接池最大阻塞等待时间
         max-wait: -1
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    publisher-confirms: true
   dubbo:
     appname: template-service-provider
     server: true
