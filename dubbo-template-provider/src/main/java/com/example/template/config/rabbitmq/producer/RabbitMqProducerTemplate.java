@@ -1,4 +1,4 @@
-package com.example.template.test.service;
+package com.example.template.config.rabbitmq.producer;
 
 import com.example.template.config.rabbitmq.RabbitMqConfig;
 import java.util.UUID;
@@ -10,13 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class RmqProducerTemplate implements RabbitTemplate.ConfirmCallback{
+public class RabbitMqProducerTemplate implements RabbitTemplate.ConfirmCallback{
 
-  private final Logger logger = LoggerFactory.getLogger(RmqProducerTemplate.class);
+  private final Logger logger = LoggerFactory.getLogger(RabbitMqProducerTemplate.class);
 
   private RabbitTemplate rabbitTemplate;
   @Autowired
-  public RmqProducerTemplate(RabbitTemplate rabbitTemplate) {
+  public RabbitMqProducerTemplate(RabbitTemplate rabbitTemplate) {
     this.rabbitTemplate = rabbitTemplate;
     //rabbitTemplate如果为单例的话，那回调就是最后设置的内容
     rabbitTemplate.setConfirmCallback(this);
@@ -41,7 +41,7 @@ public class RmqProducerTemplate implements RabbitTemplate.ConfirmCallback{
     // CorrelationData 当收到消息回执时，会附带上这个参数
     CorrelationData correlationId = new CorrelationData(UUID.randomUUID().toString());
     //把消息放入ROUTINGKEY_A对应的队列当中去，对应的是队列A
-    rabbitTemplate.convertAndSend(RabbitMqConfig.EXCHANGE_A, RabbitMqConfig.ROUTINGKEY_A, content, correlationId);
+    rabbitTemplate.convertAndSend(RabbitMqConfig.Template_Exchange, RabbitMqConfig.Template_Routingkey, content, correlationId);
   }
 
 }
