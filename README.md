@@ -34,6 +34,10 @@
     3. docker 每个服务都必须使用静态ip
 
 运维：
-    数据迁移: RabbitMq, redis, elasticsearch, Mysql。
+    数据迁移: 
+      RabbitMq：https://blog.csdn.net/kevinsingapore/article/details/82501131, 
+      redis, 
+      elasticsearch, 
+      Mysql
     stack 网络隔离
    
