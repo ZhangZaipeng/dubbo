@@ -22,6 +22,7 @@ public class RabbitMqListenerConfig {
     container.setConnectionFactory(connectionFactory);
     container.setQueueNames(RabbitMqConfig.Template_Queue);
     container.setMessageListener(rabbitMqConsumerTemplate);
+    container.setReceiveTimeout(50000L);
     // 设置消费者手动确认
     container.setAcknowledgeMode(AcknowledgeMode.MANUAL);
     return container;
