@@ -1,4 +1,4 @@
-package com.example.template.config;
+package com.example.template.config.dubbo;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;

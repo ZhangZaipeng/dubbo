@@ -4,7 +4,8 @@
 4. 分布式锁
 5. 分布式点单登录 
 6. 分布监控 stagemonitor
-7. 分布日志 ELK 日志管理
+7. 分布日志 ELK 日志管理 (service --> kafka --> Logstash --> ES --> kibana) 
+https://blog.csdn.net/zhangruhong168/article/details/76973212
 8. 分布式链路追踪 SkyWalking
 9. 分布式任务调度 xxl-job 
 10.服务熔断、降级
