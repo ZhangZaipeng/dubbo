@@ -40,4 +40,13 @@
       elasticsearch, 
       Mysql
     stack 网络隔离
+
+返回状态码：
    
+1.查询可用币种 /pay/listCoin.json
+请求类型：GET
+请求参数 ：无
+输出参数： 
+
+2.发起购买（充值） /pay/listCoin.json
+3.发起出售（体现）
