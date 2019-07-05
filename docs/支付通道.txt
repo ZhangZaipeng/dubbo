@@ -1,0 +1,54 @@
+api文档类型 页面内容参考：
+https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=8_3
+页面校验工具
+
+返回状态码：
+
+加密方式  使用微信
+
+
+
+接口：
+  1.查询可用币种 /payChannel/listCoin.json
+    请求类型：GET
+    请求参数 ：无
+    输出参数：
+
+  2.发起购买（充值） /payChannel/recharge.json
+    请求类型：POST
+    请求参数 ：
+      app_id：应用ID
+      merchant_id：商户号
+      nonce_str：随机字符串
+      coin_name：购买（充值）币种名称
+      unit_name: 交易币种名称
+      unit_name_amount：下单数量（交易币种）
+      pay_type：要求支付类型（CNY提供：银行卡，微信，支付宝；数字货币直接默认为地址）
+      out_trade_no：商户订单号
+      attach：附加数据
+      sign：签名	（HMAC-SHA256）
+    输出参数：
+      order_id:
+      url: （支付码，银行卡等信息）
+  3.发起出售（提现） /payChannel/withdraw.json
+    请求类型：POST
+    请求参数 ：
+      app_id：应用ID
+      merchant_id：商户号
+      nonce_str：随机字符串
+      coin_name：出售（提现）币种名称
+      unit_name: 交易币种名称
+      unit_trade_amount：下单数量（交易币种）
+      pay_type：要求支付类型（CNY提供：银行卡，支付宝；数字货币直接默认为地址）
+      pay_name：（支付宝：姓名，银行卡：姓名，数字货币：地址）
+      pay_info：支付信息（支付宝：支付宝账户，银行卡：银行卡号，数字货币：地址）
+      out_trade_no：商户订单号
+      attach：附加数据
+      sign：签名	（HMAC-SHA256）
+    输出参数：
+      order_id:
+  4.回调接口 payChannel/recharge/callback.json
+
+  4.回调接口 payChannel/withdraw/callback.json
+
+  5.订单查询接口

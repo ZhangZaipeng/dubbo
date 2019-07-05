@@ -41,9 +41,21 @@
       Mysql
     stack 网络隔离
 
+api文档类型：   
+https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=8_3
+
 返回状态码：
    
-1.查询可用币种 /pay/listCoin.json
+1.查询可用币种 /payChannel/listCoin.json
 请求类型：GET
 请求参数 ：无
-输出参数： 
+输出参数：
+
+2.发起购买（充值） /payChannel/recharge.json
+
+3.发起出售（提现） /payChannel/withdraw.json 
+
+4.回调接口 payChannel/callback.json
+
+5.订单查询接口
+
