@@ -49,6 +49,6 @@ https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=8_3
       order_id:
   4.回调接口 payChannel/recharge/callback.json
 
-  4.回调接口 payChannel/withdraw/callback.json
+  5.回调接口 payChannel/withdraw/callback.json
 
-  5.订单查询接口
+  6.订单查询接口
