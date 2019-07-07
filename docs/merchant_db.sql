@@ -12,13 +12,10 @@ CREATE TABLE `tb_merchant` (
   `security_pwd` varchar(100) DEFAULT NULL COMMENT '资金安全密码',
   '默认给承兑商的提成点',
 
-  `invitees_merchant_id` bigint(11) DEFAULT '0' COMMENT '被邀请人用户ID， 0 没有邀请人',
-  `relationPath` '关系路径 9012998/9893843/9731231 ',
-  `` '区域'
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后修改时间',
 
-  PRIMARY KEY (`user_id`),
+  PRIMARY KEY (`merchant_id`),
   UNIQUE KEY `uniq_mobile` (`mobile`),
   UNIQUE KEY `uniq_email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=98000039 DEFAULT CHARSET=utf8 COMMENT='商户表';
@@ -38,9 +35,10 @@ CREATE TABLE `tb_merchant_agent` (
 
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后修改时间',
-  PRIMARY KEY (`user_agent_id`) USING BTREE,
-  UNIQUE KEY `uniq_telephone` (`telephone`) USING BTREE,
-  UNIQUE KEY `uniq_email` (`email`) USING BTREE
+  PRIMARY KEY (`merchant_agent_id`) USING BTREE,
+  UNIQUE KEY `uniq_merchant_id` (`merchant_id`),
+  UNIQUE KEY `uniq_telephone` (`telephone`),
+  UNIQUE KEY `uniq_email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='商户登录表';
 
 -- 商户接口密钥 （一个商户可以申请多个 APID）

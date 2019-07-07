@@ -47,6 +47,7 @@ https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=8_3
       sign：签名	（HMAC-SHA256）
     输出参数：
       order_id:
+      url: （支付码，银行卡等信息）
   4.回调接口 payChannel/recharge/callback.json
 
   5.回调接口 payChannel/withdraw/callback.json
