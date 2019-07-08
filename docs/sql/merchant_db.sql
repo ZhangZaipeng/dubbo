@@ -51,6 +51,7 @@ CREATE TABLE `tb_merchant_app_secret` (
   `app_name` varchar(20) DEFAULT NULL COMMENT '应用名称',
   `app_img_url` varchar(128) DEFAULT NULL COMMENT '应用 图像 URL',
   `app_secret` varchar(128) DEFAULT NULL COMMENT '应用 密钥',
+  `app_callback_url` varchar(128) DEFAULT NULL COMMENT '应用 回调地址 : http://www.baidu.com:8181',
 
   `deleted` smallint(1) DEFAULT '0' COMMENT '账号状态： 1 有效 0 无效 ',
 

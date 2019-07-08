@@ -32,10 +32,14 @@ CREATE TABLE `tb_pay_channel_recharge` (
   `coin_name` varchar(50) NOT NULL COMMENT '购买/充值 币种名称',
   `unit_id` bigint(11) NOT NULL COMMENT '币种ID',
   `unit_name` varchar(50) NOT NULL COMMENT '交易币种名称',
-  `recharge_amt` DECIMAL(20,8) DEFAULT NULL COMMENT '购买/充值金额，交易数量',
 
-  `` '订单完成后的佣金佣金'
+  `recharge_amt` DECIMAL(20,8) DEFAULT NULL COMMENT '购买/充值金额，交易数量',
   `recharge_type` SMALLINT(1) NOT NULL COMMENT '用户付款方式 1.支付宝 2.微信 3.银行卡 4.数字货币',
+  `withdraw_account` varchar(50) DEFAULT NULL COMMENT '出售/提现 账户：支付宝账户，数字货币地址，银行卡号，微信号',
+
+  `` '订单完成后的佣金佣金',
+  `` '订单分配时间',
+  `` '订单确认收款时间',
 
   `status` SMALLINT(1) NOT NULL DEFAULT 0 COMMENT '订单状态：1.匹配中 2.待付款 3.用户待确认 4.承兑商待确认 5.完成 6.订单超时',
 
@@ -53,7 +57,7 @@ COMMENT='商户购买表，用户充值表'
 AUTO_INCREMENT=1
 ;
 
--- 商户出售（用户提现） 订单状态：1.抢单中 2.待付款 3.用户待确认 4.承兑商待确认 5.完成
+-- 商户出售（用户提现） 订单状态：1.抢单中 2.承兑商待付款 3.承兑商付款确认 5.用户确认 6.自动确认
 DROP TABLE IF EXISTS `tb_pay_channel_withdraw`;
 CREATE TABLE `tb_pay_channel_withdraw` (
 	`withdraw_order_id` BIGINT(11) NOT NULL AUTO_INCREMENT COMMENT '订单 编号',
@@ -68,8 +72,12 @@ CREATE TABLE `tb_pay_channel_withdraw` (
   `unit_name` varchar(50) NOT NULL COMMENT '交易币种名称',
 
   `withdraw_amt` DECIMAL(20,8) DEFAULT NULL COMMENT '出售/提现 金额，',
-  `withdraw_type` SMALLINT(1) NOT NULL COMMENT '1.支付宝 2.微信 3.银行卡 4.数字货币',
-  `withdraw_account` varchar(50) DEFAULT NULL COMMENT '出售/提现 账户：',
+  `withdraw_type` SMALLINT(1) NOT NULL COMMENT '1.支付宝 3.银行卡 4.数字货币',
+  `withdraw_account` varchar(50) DEFAULT NULL COMMENT '出售/提现 账户：支付宝账户，数字货币地址，银行卡号',
+
+  `` '订单完成后的佣金佣金',
+  `` '订单抢单时间',
+  `` '订单支付完成时间',
 
   `status` SMALLINT(1) NOT NULL DEFAULT 0 COMMENT '订单状态 ',
 
