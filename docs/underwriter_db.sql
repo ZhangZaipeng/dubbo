@@ -58,3 +58,6 @@ CREATE TABLE `tb_merchant_agent` (
 '成交'
 '剩余金额'
 '剩余金额'
+
+
+-- 承兑商 用户权限角色

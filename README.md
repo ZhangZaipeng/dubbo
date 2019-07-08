@@ -1,6 +1,12 @@
 1. 分布式服务拆分（业务角度切分, 服务与服务之间的循环依赖）
-    common : 短息，文件上传，推送
-  
+    common : 短息，文件上传，消息
+    system : 后台配置，
+    pay : 支付通道
+    report : 统计报表
+    wallet : 钱包
+    merchant : 商户
+    underwriter : 承兑商
+    
 2. 分布式框架
     dubbo 微服务
 3. 分布式事务
