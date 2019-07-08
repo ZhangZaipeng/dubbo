@@ -6,11 +6,11 @@ CREATE TABLE `tb_merchant` (
   `icon_img_url` varchar(128) DEFAULT NULL COMMENT '头像',
   `mobile` varchar(20) DEFAULT NULL COMMENT '手机号',
   `email` varchar(50) DEFAULT NULL COMMENT '邮箱',
+
   `auth_num` smallint(1) DEFAULT '0' COMMENT '实名次数',
   `auth_level` smallint(1) DEFAULT '0' COMMENT '0 未认证 1 初级认证 2高级认证',
-
   `security_pwd` varchar(100) DEFAULT NULL COMMENT '资金安全密码',
-  '默认给承兑商的提成点',
+  `default_udw_commission` DECIMAL(10,5) DEFAULT NULL COMMENT '默认给承兑商的提成点',
 
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后修改时间',
@@ -43,7 +43,7 @@ CREATE TABLE `tb_merchant_agent` (
 
 -- 商户接口密钥 （一个商户可以申请多个 APPID）
 DROP TABLE IF EXISTS `tb_merchant_app_secret`;
-CREATE TABLE `tb_merchant_agent` (
+CREATE TABLE `tb_merchant_app_secret` (
   `id` bigint(11) NOT NULL AUTO_INCREMENT COMMENT '密钥 编号',
   `merchant_id` bigint(11) NOT NULL COMMENT '商户 编号',
 
@@ -61,3 +61,17 @@ CREATE TABLE `tb_merchant_agent` (
   INDEX `idx_merchant_id` (`merchant_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ROW_FORMAT=DEFAULT COMMENT='商户接口密钥表';
 
+-- 商户 绑定 承兑商（一个承兑商只能对应一个商户）
+DROP TABLE IF EXISTS `tb_merchant_underwriter`;
+CREATE TABLE `tb_merchant_underwriter` (
+  `id` bigint(11) NOT NULL AUTO_INCREMENT COMMENT '自增id',
+  `merchant_id` bigint(11) NOT NULL COMMENT '商户 编号',
+  `underwriter_id` BIGINT(11) NOT NULL COMMENT '所属 承兑商编号',
+
+  `default_udw_commission` DECIMAL(10,5) DEFAULT NULL COMMENT '承兑商的提成点',
+
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后修改时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uniq_merchant_underwriter` (`merchant_id`,`underwriter_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ROW_FORMAT=DEFAULT COMMENT='商户 绑定 承兑商';
