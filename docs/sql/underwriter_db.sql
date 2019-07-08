@@ -2,16 +2,20 @@
 DROP TABLE IF EXISTS `tb_underwriter`;
 CREATE TABLE `tb_underwriter` (
   `underwriter_id` bigint(11) NOT NULL AUTO_INCREMENT COMMENT '承兑商 id 编号',
+  `merchant_id` bigint(11) DEFAULT NULL COMMENT '所属商户',
+
   -- infor
   `nick_name` varchar(20) DEFAULT NULL COMMENT '承兑商 昵称',
   `icon_img_url` varchar(128) DEFAULT NULL COMMENT '头像',
   `mobile` varchar(20) DEFAULT NULL COMMENT '手机号',
   `email` varchar(50) DEFAULT NULL COMMENT '邮箱',
 
-
   --
-  `` '是否听单中',
+  `is_listening` smallint(1) DEFAULT '0' COMMENT '是否听单中 0否 1是',
   `` '成交总数',
+  `` '支付宝转账 上限',
+  `` '银行卡转账 上限',
+  `` '微信转账 上限',
 
   -- auth
   `auth_num` smallint(1) DEFAULT '0' COMMENT '实名次数',
@@ -25,15 +29,16 @@ CREATE TABLE `tb_underwriter` (
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后修改时间',
 
   PRIMARY KEY (`underwriter_id`),
+  UNIQUE KEY `uniq_merchant_id` (`merchant_id`),
   UNIQUE KEY `uniq_mobile` (`mobile`),
   UNIQUE KEY `uniq_email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=98000039 DEFAULT CHARSET=utf8 COMMENT='承兑商表';
+) ENGINE=InnoDB AUTO_INCREMENT=98000039 DEFAULT CHARSET=utf8 ROW_FORMAT=DEFAULT COMMENT='承兑商表';
 
 -- 承兑商登录表 Underwriter
 DROP TABLE IF EXISTS `tb_underwriter_agent`;
 CREATE TABLE `tb_merchant_agent` (
-  `underwriter_agent_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '商户 登录编号',
-  `underwriter_id` bigint(20) NOT NULL COMMENT '商户 编号',
+  `underwriter_agent_id` bigint(11) NOT NULL AUTO_INCREMENT COMMENT '商户 登录编号',
+  `underwriter_id` bigint(11) NOT NULL COMMENT '商户 编号',
   `telephone` varchar(20) DEFAULT NULL COMMENT '电话',
   `email` varchar(128) DEFAULT NULL COMMENT '邮箱',
 
@@ -48,9 +53,11 @@ CREATE TABLE `tb_merchant_agent` (
   UNIQUE KEY `uniq_underwriter_id` (`underwriter_id`),
   UNIQUE KEY `uniq_telephone` (`telephone`),
   UNIQUE KEY `uniq_email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='承兑商登录表';
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8 ROW_FORMAT=DEFAULT COMMENT='承兑商登录表';
 
 -- 承兑商 收款方式
+
+
 
 -- 承兑商 成交统计
 '承兑商 id'
@@ -58,3 +65,6 @@ CREATE TABLE `tb_merchant_agent` (
 '成交'
 '剩余金额'
 '剩余金额'
+
+
+-- 承兑商 用户权限角色
