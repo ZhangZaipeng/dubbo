@@ -18,13 +18,13 @@ CREATE TABLE `tb_merchant` (
   PRIMARY KEY (`merchant_id`),
   UNIQUE KEY `uniq_mobile` (`mobile`),
   UNIQUE KEY `uniq_email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=98000039 DEFAULT CHARSET=utf8 COMMENT='商户表';
+) ENGINE=InnoDB AUTO_INCREMENT=98000039 DEFAULT CHARSET=utf8 ROW_FORMAT=DEFAULT COMMENT='商户表';
 
 -- 商户登录表
 DROP TABLE IF EXISTS `tb_merchant_agent`;
 CREATE TABLE `tb_merchant_agent` (
-  `merchant_agent_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '商户 登录编号',
-  `merchant_id` bigint(20) NOT NULL COMMENT '商户 编号',
+  `merchant_agent_id` bigint(11) NOT NULL AUTO_INCREMENT COMMENT '商户 登录编号',
+  `merchant_id` bigint(11) NOT NULL COMMENT '商户 编号',
   `telephone` varchar(20) DEFAULT NULL COMMENT '电话',
   `email` varchar(128) DEFAULT NULL COMMENT '邮箱',
 
@@ -35,10 +35,29 @@ CREATE TABLE `tb_merchant_agent` (
 
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后修改时间',
-  PRIMARY KEY (`merchant_agent_id`) USING BTREE,
+  PRIMARY KEY (`merchant_agent_id`),
   UNIQUE KEY `uniq_merchant_id` (`merchant_id`),
   UNIQUE KEY `uniq_telephone` (`telephone`),
   UNIQUE KEY `uniq_email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='商户登录表';
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ROW_FORMAT=DEFAULT COMMENT='商户登录表';
 
--- 商户接口密钥 （一个商户可以申请多个 APID）
+-- 商户接口密钥 （一个商户可以申请多个 APPID）
+DROP TABLE IF EXISTS `tb_merchant_app_secret`;
+CREATE TABLE `tb_merchant_agent` (
+  `id` bigint(11) NOT NULL AUTO_INCREMENT COMMENT '密钥 编号',
+  `merchant_id` bigint(11) NOT NULL COMMENT '商户 编号',
+
+  `app_id` varchar(50) NOT NULL COMMENT 'APP ID',
+  `app_name` varchar(20) DEFAULT NULL COMMENT '应用名称',
+  `app_img_url` varchar(128) DEFAULT NULL COMMENT '应用 图像 URL',
+  `app_secret` varchar(128) DEFAULT NULL COMMENT '应用 密钥',
+
+  `deleted` smallint(1) DEFAULT '0' COMMENT '账号状态： 1 有效 0 无效 ',
+
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后修改时间',
+  PRIMARY KEY (`id`) ,
+  UNIQUE KEY `uniq_app_id` (`app_id`),
+  INDEX `idx_merchant_id` (`merchant_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ROW_FORMAT=DEFAULT COMMENT='商户接口密钥表';
+
