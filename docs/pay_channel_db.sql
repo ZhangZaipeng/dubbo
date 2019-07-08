@@ -11,7 +11,7 @@ CREATE TABLE `tb_pay_channel_recharge` (
 	`recharge_order_token` BIGINT(11) NOT NULL AUTO_INCREMENT COMMENT '订单 令牌',
 	`underwriter_id` BIGINT(11) DEFAULT NULL COMMENT '所属 承兑商编号',
 
-  `status` SMALLINT(1) NOT NULL DEFAULT 0 COMMENT '订单状态：1.匹配中 2.待付款 3.用户待确认 4.承兑商待确认 5.完成',
+  `status` SMALLINT(1) NOT NULL DEFAULT 0 COMMENT '订单状态：1.匹配中 2.待付款 3.用户待确认 4.承兑商待确认 5.完成 6.订单超时',
 
 	`created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
 	`updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后修改时间',
