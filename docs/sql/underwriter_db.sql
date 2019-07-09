@@ -9,9 +9,7 @@ CREATE TABLE `tb_underwriter` (
   `icon_img_url` varchar(128) DEFAULT NULL COMMENT '头像',
   `mobile` varchar(20) DEFAULT NULL COMMENT '手机号',
   `email` varchar(50) DEFAULT NULL COMMENT '邮箱',
-  `underwriter_role` int(11) NOT NULL COMMENT '承兑商 角色ID',
 
-  --
   `is_bond` smallint(1) DEFAULT '0' COMMENT '是否支付保定金 0否 1是',
   `is_listening` smallint(1) DEFAULT '0' COMMENT '是否听单中 0否 1是',
   `mobile_notification` smallint(1) DEFAULT '1' '手机通知 是否开启 0否 1是',
@@ -20,9 +18,7 @@ CREATE TABLE `tb_underwriter` (
   `auth_num` smallint(1) DEFAULT '0' COMMENT '实名次数',
   `auth_level` smallint(1) DEFAULT '0' COMMENT '0 未认证 1 初级认证 2高级认证',
   `security_pwd` varchar(100) DEFAULT NULL COMMENT '资金安全密码',
-
   `invitees_merchant_id` bigint(11) DEFAULT '0' COMMENT '被邀请人用户ID， 0 没有邀请人',
-  `relation_path` '关系路径 9012998/9893843/9731231 ',
   `area` varchar(100) DEFAULT NULL COMMENT '区域 省-市-区',
 
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',

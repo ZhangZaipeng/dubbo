@@ -61,3 +61,26 @@ CREATE TABLE `tb_underwriter_role` (
 INSERT INTO `tb_underwriter_role`(`role_id`, `role_name`, `remark`) VALUES (1, '代理商', '承兑商 代理商角色');
 INSERT INTO `tb_underwriter_role`(`role_id`, `role_name`, `remark`) VALUES (2, '组长', '承兑商 组长角色');
 INSERT INTO `tb_underwriter_role`(`role_id`, `role_name`, `remark`) VALUES (3, '承兑商', '承兑商 组长角色');
+
+
+DROP TABLE IF EXISTS `tb_underwriter_proxy`;
+CREATE TABLE `tb_underwriter_proxy` (
+  `id` bigint(11) NOT NULL AUTO_INCREMENT COMMENT '自增id',
+  `merchant_id` bigint(11) NOT NULL COMMENT '商户 编号',
+
+  `up_underwriter_id` BIGINT(11) NOT NULL COMMENT '上级承兑商ID',
+  `curr_underwriter_id` BIGINT(11) NOT NULL COMMENT '当前承兑商ID',
+  `curr_underwriter_role` int(11) NOT NULL COMMENT '当前承兑商 角色ID',
+
+  `curr_commission` DECIMAL(10,5) DEFAULT NULL COMMENT '当前商户 给代理的提成点',
+  `default_next_commission` DECIMAL(10,5) DEFAULT NULL COMMENT '给下级的默认提成点',
+
+  `type` smallint(1) DEFAULT '1' COMMENT '状态：1 ：商户绑定代理商,2：代理商与小组长, 3, 小组长与承兑商',
+
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后修改时间',
+  PRIMARY KEY (`id`),
+  INDEX `idx_merchant_id` (`merchant_id`),
+  INDEX `idx_up_underwriter_id` (`up_underwriter_id`),
+  UNIQUE KEY `uniq_curr_underwriter_id` (`curr_underwriter_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ROW_FORMAT=DEFAULT COMMENT='商户 绑定 承兑商';

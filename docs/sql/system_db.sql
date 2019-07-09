@@ -50,16 +50,18 @@ CREATE TABLE `tb_system_help` (
 CREATE TABLE `tb_system_invitation_code` (
   `id` bigint(11) NOT NULL AUTO_INCREMENT COMMENT '自增长ID',
 
-  `u_id` bigint(11) DEFAULT NULL COMMENT '生成人ID',
-  `p_identify` int(11) DEFAULT NULL COMMENT '生成人 （0是商户，1是承兑商）',
-  `code` varchar(45) DEFAULT NULL COMMENT '邀请码',
-  `c_identify` int(11) DEFAULT NULL COMMENT '使用人 （0是商户，1是承兑商）',
+  `u_id` bigint(11) NOT NULL COMMENT '生成者ID',
+  `type` int(11) NOT NULL COMMENT '生成者类型 （0是商户，1是承兑商）',
+
+  `use_underwriter_id` BIGINT(11) DEFAULT NULL COMMENT '使用人 承兑商ID',
+  `invitation_code` varchar(45) NOT NULL COMMENT '邀请码',
 
   `status` smallint(1) DEFAULT '0' COMMENT '使用情况： 1 使用 0 未使用 ',
 
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uniq_invitation_code` (`invitation_code`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ROW_FORMAT=DEFAULT  COMMENT='邀请码表';
 
 
@@ -78,7 +80,8 @@ CREATE TABLE `tb_system_appeal` (
 
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  INDEX `idx_order_id` (`order_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ROW_FORMAT=DEFAULT  COMMENT='订单申诉';
 
 

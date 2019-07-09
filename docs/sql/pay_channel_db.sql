@@ -33,14 +33,14 @@ CREATE TABLE `tb_pay_channel_recharge` (
   `unit_id` bigint(11) NOT NULL COMMENT '币种ID',
   `unit_name` varchar(50) NOT NULL COMMENT '交易币种名称',
 
-  `recharge_amt` DECIMAL(20,8) DEFAULT NULL COMMENT '购买/充值金额，交易数量',
+  `recharge_amt` DECIMAL(20,10) DEFAULT NULL COMMENT '购买/充值金额，交易数量',
   `recharge_type` SMALLINT(1) NOT NULL COMMENT '用户付款方式 1.支付宝 2.微信 3.银行卡 4.数字货币',
   `recharge_account` varchar(50) DEFAULT NULL COMMENT '购买/充值 账户：支付宝账户，数字货币地址，银行卡号，微信号',
   `recharge_real_name` varchar(50) DEFAULT NULL COMMENT '购买/充值人 真实姓名',
 
-  `` '订单完成后的佣金',
-  `` '订单分配时间',
-  `` '订单确认收款时间',
+  `order_commission` DECIMAL(20,10) DEFAULT NULL COMMENT  '订单完成后的佣金',
+  `order_allocation_time` TIMESTAMP DEFAULT NULL COMMENT '订单分配时间',
+  `order_confirm_time` TIMESTAMP DEFAULT NULL COMMENT '订单确认收款时间',
 
   `status` SMALLINT(1) NOT NULL DEFAULT 0 COMMENT '订单状态：1.匹配中 2.待付款 3.用户待确认 4.承兑商待确认 5.完成 6.订单超时',
 
@@ -78,9 +78,9 @@ CREATE TABLE `tb_pay_channel_withdraw` (
   `withdraw_account` varchar(50) DEFAULT NULL COMMENT '出售/提现 账户：支付宝账户，数字货币地址，银行卡号',
   `withdraw_real_name` varchar(50) DEFAULT NULL COMMENT '出售/提现人 真实姓名',
 
-  `` '订单完成后的佣金佣金',
-  `` '订单抢单时间',
-  `` '订单支付完成时间',
+  `order_commission` DECIMAL(20,10) DEFAULT NULL COMMENT  '订单完成后的佣金',
+  `order_allocation_time` TIMESTAMP DEFAULT NULL COMMENT '订单分配时间',
+  `order_confirm_time` TIMESTAMP DEFAULT NULL COMMENT '订单确认收款时间',
 
   `status` SMALLINT(1) NOT NULL DEFAULT 0 COMMENT '订单状态 1.抢单中 2.（抢单成功）承兑商待付款 3.承兑商付款确认 5.系统完成',
 
