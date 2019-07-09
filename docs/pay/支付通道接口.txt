@@ -5,7 +5,7 @@ https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=8_3
 返回状态码：
 
 加密方式  使用微信
-
+https://www.cnblogs.com/love-snow/articles/8241314.html
 
 接口：
   1.查询可用币种 /payChannel/listCoin.json
