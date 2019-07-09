@@ -46,4 +46,40 @@ CREATE TABLE `tb_system_help` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ROW_FORMAT=DEFAULT  COMMENT='帮助中心';
 
 
+-- 邀请码表
+CREATE TABLE `tb_system_invitation_code` (
+  `id` bigint(11) NOT NULL AUTO_INCREMENT COMMENT '自增长ID',
+
+  `u_id` bigint(11) DEFAULT NULL COMMENT '生成人ID',
+  `p_identify` int(11) DEFAULT NULL COMMENT '生成人 （0是商户，1是承兑商）',
+  `code` varchar(45) DEFAULT NULL COMMENT '邀请码',
+  `c_identify` int(11) DEFAULT NULL COMMENT '使用人 （0是商户，1是承兑商）',
+
+  `status` smallint(1) DEFAULT '0' COMMENT '使用情况： 1 使用 0 未使用 ',
+
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ROW_FORMAT=DEFAULT  COMMENT='邀请码表';
+
+
+-- 订单申诉
+CREATE TABLE `tb_system_appeal` (
+  `id` bigint(11) NOT NULL AUTO_INCREMENT COMMENT '自增长ID',
+  `order_id` bigint(11) DEFAULT NULL COMMENT '订单编号',
+
+  `appeal_content` varchar(255) DEFAULT NULL COMMENT '申诉内容',
+  `appeal_img_url1` varchar(255) DEFAULT NULL COMMENT '申诉图片1',
+  `appeal_img_url2` varchar(255) DEFAULT NULL COMMENT '申诉图片2',
+  `appeal_img_url3` varchar(255) DEFAULT NULL COMMENT '申诉图片3',
+
+  `type` smallint(1) NOT NULL COMMENT '申诉类型： 1 收购单 0 购买单 ',
+  `status` smallint(1) DEFAULT '0' COMMENT '申诉 订单状态： 0 申诉中 1 协调中 2 结束 ',
+
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ROW_FORMAT=DEFAULT  COMMENT='订单申诉';
+
+
 -- 管理系统 用户 - 权限 - 角色

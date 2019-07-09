@@ -38,15 +38,3 @@ spring:
     port: -1
     threads: 500
     version: 1.0.0
-
-### 文件上传
-oss:
-  # OSS访问编号
-  accessKeyId: LTAIp4oYoDb2fhKV
-  # OSS访问密钥
-  accessKeySecret: ZGMCYSSq8FZ7xXMqpyhzaHvmSZ6PyN
-  # OSS存储空间
-  bucketName: shanghai-ex-file
-  file:
-    maxsize: 102400
-    file_img_extension: bmp,jpg,gif,jpeg,png
