@@ -1,5 +1,27 @@
 -- 钱包表 --
 
+CREATE TABLE `tb_wallet` (
+  `wallet_id` bigint(11) NOT NULL AUTO_INCREMENT COMMENT '自增长ID',
+  `name` varchar(256) DEFAULT NULL COMMENT '钱包名称',
+  `type` varchar(128) DEFAULT NULL COMMENT '钱包类型',
+  `url` varchar(256) DEFAULT NULL COMMENT '钱包地址',
+  `rpc_port` varchar(64) DEFAULT NULL COMMENT 'rpc端口',
+  `note` longtext COMMENT '描述',
+  `status` tinyint(1) DEFAULT '-1' COMMENT '钱包状态 -1 离线 1 在线',
+  `hot_address` varchar(255) DEFAULT '' COMMENT '热钱包地址',
+  `hot_pwd` varchar(255) DEFAULT '' COMMENT '热钱包密码',
+  `hot_file` varchar(255) DEFAULT '' COMMENT '热钱包秘钥文件',
+  `cold_address` varchar(255) DEFAULT '' COMMENT '冷钱包地址',
+  `last_sync_trans_hash` varchar(255) DEFAULT '' COMMENT '最后同步到的交易哈希',
+  `block_sync` varchar(255) DEFAULT '' COMMENT '当前区块(最后同步到的区块)',
+  `wallet_user` varchar(255) DEFAULT '' COMMENT '比特币钱包账户',
+  `wallet_pwd` varchar(255) DEFAULT '' COMMENT '比特币钱包RPC密码',
+  `block_browser` varchar(255) DEFAULT NULL COMMENT '区块浏览器查看地址',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  PRIMARY KEY (`wallet_id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='钱包配置';
+
 -- 币种表
 CREATE TABLE `tb_coin` (
   `coin_id` bigint(11) NOT NULL AUTO_INCREMENT COMMENT '自增长主键',

@@ -10,6 +10,10 @@ CREATE TABLE `tb_underwriter` (
   `mobile` varchar(20) DEFAULT NULL COMMENT '手机号',
   `email` varchar(50) DEFAULT NULL COMMENT '邮箱',
 
+  `google_auth` varchar(20) DEFAULT NULL COMMENT '谷歌验证码',
+  `google_auth_url` varchar(255) DEFAULT NULL COMMENT '谷歌验证码链接',
+  `google_auth_lock` smallint(1) DEFAULT '0' COMMENT '是否关闭谷歌认证  默认 0关闭状态  1 开启',
+
   `is_bond` smallint(1) DEFAULT '0' COMMENT '是否支付保定金 0否 1是',
   `is_listening` smallint(1) DEFAULT '0' COMMENT '是否听单中 0否 1是',
   `mobile_notification` smallint(1) DEFAULT '1' '手机通知 是否开启 0否 1是',
@@ -102,7 +106,32 @@ CREATE TABLE `tb_underwriter_asset` (
   UNIQUE KEY `uniq_currency_crypto_address` (`currency`,`crypto_address`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='承兑商资产信息';
 
+-- 商户资产记录
+-- tb_underwriter_record
 
 
+CREATE TABLE `tb_underwriter_auth` (
+  `id` bigint(11) NOT NULL AUTO_INCREMENT,
+  `underwriter_id` bigint(11) NOT NULL COMMENT '用户编号',
 
+  `area_type` smallint(1) DEFAULT NULL COMMENT '会员地区类别：1-中华人民共和国，2-其它国家或地区',
+  `area_name` varchar(256) DEFAULT NULL COMMENT '地区名称',
+
+  `auth_name` varchar(256) DEFAULT NULL COMMENT '认证名称',
+  `auth_surname` varchar(256) DEFAULT '0' COMMENT '认证姓氏',
+
+  `card_no` varchar(128) DEFAULT NULL COMMENT '身份证号码',
+  `card_home` varchar(128) DEFAULT NULL COMMENT '证件封面',
+  `card_back` varchar(128) DEFAULT NULL COMMENT '证件背面',
+  `card_hand` varchar(128) DEFAULT NULL COMMENT '手持身份证',
+  `card_start_time` varchar(20) DEFAULT NULL COMMENT '身份证起始时间',
+  `card_end_time` varchar(20) DEFAULT NULL COMMENT '身份证结束时间',
+
+  `status` smallint(1) DEFAULT '0' COMMENT '认证状态: 0：未认证，1：初级审核通过，-2：高级审核失败，2：高级审核通过，3：高级待审核，9-其它(与leve 表中的ID对应)',
+  `note` varchar(512) DEFAULT NULL COMMENT '描述',
+
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后修改时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='承兑商认证 信息表';
 

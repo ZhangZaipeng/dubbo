@@ -7,6 +7,10 @@ CREATE TABLE `tb_merchant` (
   `mobile` varchar(20) DEFAULT NULL COMMENT '手机号',
   `email` varchar(50) DEFAULT NULL COMMENT '邮箱',
 
+  `google_auth` varchar(20) DEFAULT NULL COMMENT '谷歌验证码',
+  `google_auth_url` varchar(255) DEFAULT NULL COMMENT '谷歌验证码链接',
+  `google_auth_lock` smallint(1) DEFAULT '0' COMMENT '是否关闭谷歌认证  默认 0关闭状态  1 开启',
+
   `auth_num` smallint(1) DEFAULT '0' COMMENT '实名次数',
   `auth_level` smallint(1) DEFAULT '0' COMMENT '0 未认证 1 初级认证 2高级认证',
   `security_pwd` varchar(100) DEFAULT NULL COMMENT '资金安全密码',
@@ -88,3 +92,32 @@ CREATE TABLE `tb_merchant_asset` (
   UNIQUE KEY `uniq_currency_crypto_address` (`currency`,`crypto_address`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='商户 资产信息';
 
+-- 商户资产记录
+-- tb_merchant_record
+
+
+-- 商户认证
+CREATE TABLE `tb_underwriter_auth` (
+  `id` bigint(11) NOT NULL AUTO_INCREMENT,
+  `merchant_id` bigint(11) NOT NULL COMMENT '用户编号',
+
+  `area_type` smallint(1) DEFAULT NULL COMMENT '会员地区类别：1-中华人民共和国，2-其它国家或地区',
+  `area_name` varchar(256) DEFAULT NULL COMMENT '地区名称',
+
+  `auth_name` varchar(256) DEFAULT NULL COMMENT '认证名称',
+  `auth_surname` varchar(256) DEFAULT '0' COMMENT '认证姓氏',
+
+  `card_no` varchar(128) DEFAULT NULL COMMENT '身份证号码',
+  `card_home` varchar(128) DEFAULT NULL COMMENT '证件封面',
+  `card_back` varchar(128) DEFAULT NULL COMMENT '证件背面',
+  `card_hand` varchar(128) DEFAULT NULL COMMENT '手持身份证',
+  `card_start_time` varchar(20) DEFAULT NULL COMMENT '身份证起始时间',
+  `card_end_time` varchar(20) DEFAULT NULL COMMENT '身份证结束时间',
+
+  `status` smallint(1) DEFAULT '0' COMMENT '认证状态: 0：未认证，1：初级审核通过，-2：高级审核失败，2：高级审核通过，3：高级待审核，9-其它(与leve 表中的ID对应)',
+  `note` varchar(512) DEFAULT NULL COMMENT '描述',
+
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后修改时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='商户认证信息表';
