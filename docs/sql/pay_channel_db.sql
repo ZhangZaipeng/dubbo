@@ -106,6 +106,8 @@ CREATE TABLE `tb_pay_journal_account` (
 	`underwriter_id` BIGINT(11) DEFAULT NULL COMMENT '所属 承兑商编号',
 	`out_trade_no` varchar(100) DEFAULT NULL COMMENT '商户订单号编号',
 
+  `coin_rate` DECIMAL(20,10) DEFAULT NULL COMMENT '币种当前兑率',
+
 	`order_id` VARCHAR(20) NOT NULL COMMENT '订单编号 G160705000000000001',
 	`order_type` VARCHAR(50) NOT NULL COMMENT '订单类型 recharge/withdraw',
   `order_amt` DECIMAL(20,4) NOT NULL COMMENT '订单金额',
